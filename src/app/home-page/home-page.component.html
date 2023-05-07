@@ -1,0 +1,37 @@
+<app-nav></app-nav>
+
+<div class="img">
+  <br>
+  <div class="sub">
+<div class="row row-cols-1 row-cols-md-3" >
+  <div class="col mb-4" *ngFor="let bike of bikeData">
+    <!-- Card -->
+    <div class="card bg-black text-white">
+      <!--Card image-->
+
+      <div class="view overlay">
+        <img class="card-img-top" [src]="bike.bikeImgUrl"
+          alt="Card image cap">
+        <a href="#!">
+          <div class="mask rgba-white-slight"></div>
+        </a>
+      </div>
+
+      <!--Card content-->
+      <div class="card-body text-white">
+
+        <!--Title-->
+        <h4 class="card-title">{{bike.bikeName}} <i>({{ bike.lenderId.displayName }})</i></h4>
+        <!--Text-->
+        <p class="card-text">{{bike.bikeDesc}}</p>
+        <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+        <button type="button" class="btn btn-dark btn-md text-white">Price Per Day:- {{bike.priceDay}}</button>
+
+      </div>
+
+    </div>
+    <!-- Card -->
+  </div>
+</div>
+</div>
+</div>

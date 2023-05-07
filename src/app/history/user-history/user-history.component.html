@@ -1,0 +1,29 @@
+<app-nav></app-nav>
+
+<div *ngIf="historyData.length==0" class="no">
+  <h3>There is No Past Bookings ...... </h3>
+</div>
+
+<div class="img" *ngFor="let data of historyData">
+  <br>
+  <mat-card class="example-card">
+    <mat-card-header class="header">
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{data.bikename}}</mat-card-title>
+      <mat-card-subtitle>{{data.lendername}} / {{data.lenderphone}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image [src]="data.bikeimg" alt="Photo of Bike">
+    <mat-card-content class="body">
+      <h5>{{data.bikedesc}}</h5>
+      <h6>Date :- {{data.date}} <br></h6>
+      <b><p *ngIf="data.iscompleted">Bike Ride Completed</p></b>
+      <b><p *ngIf="!data.iscompleted">Bike Ride Ongoing</p></b>
+
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button>Total Cost :- {{data.totalcost}}  [Per day:- {{data.bikeprice}}] </button> &nbsp;
+      <button mat-raised-button>Bike Booked for {{data.days}} Days</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+

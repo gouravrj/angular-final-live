@@ -1,0 +1,51 @@
+<app-nav></app-nav>
+<div class="container mt-4">
+  <form #regForm="ngForm" (ngSubmit)="onSubmitForm()">
+      <div class="card mt-4 shadow">
+          <div class="card-header bg-info text-white">
+              <h2>Add Bike</h2>
+          </div>
+          <div class="card-body">
+              <div [class]="isError?'alert alert-danger':'d-none'" class="my-4">{{ message }}</div>
+              <div [class]="isSuccess?'alert alert-success':'d-none'" class="my-4">{{ message }}</div>
+              <div class="form-group mt-4">
+                  <input type="text" #bname="ngModel" [class.is-invalid]="bname.errors && bname.touched" required class="form-control" name="bikename" placeholder="Bike Name" [(ngModel)]="bike.bname"/>
+                  <div *ngIf="bname.errors && bname.touched">
+                      <div *ngIf="bname.errors?.['required']" class="text-danger">Bike Name is Required</div>
+                  </div>
+              </div>
+              <div class="form-group mt-4">
+                  <input type="text" #bdesc="ngModel" minlength="10" [class.is-invalid]="bdesc.errors && bdesc.touched" required class="form-control" name="bikedescription" placeholder="Bike Description" [(ngModel)]="bike.bdesc"/>
+                  <div *ngIf="bdesc.errors && bdesc.touched">
+                      <div *ngIf="bdesc.errors?.['required']" class="text-danger" >Bike Description is Required</div>
+                      <div *ngIf="bdesc.errors?.['minlength']" class="text-danger" >Bike Description cannot be less than 10 charecters</div>
+                  </div>
+              </div>
+              <div class="form-group mt-4">
+                  <input type="text" #pday="ngModel" pattern="[0-9][0-9][0-9]+" [class.is-invalid]="pday.errors && pday.touched" required class="form-control" name="pricepday" placeholder="Price Per Day" [(ngModel)]="bike.pday"/>
+                  <div *ngIf="pday.errors && pday.touched">
+                      <div *ngIf="pday.errors?.['required']" class="text-danger">Price Per Day is Required</div>
+                      <div *ngIf="pday.errors?.['pattern']" class="text-danger">Enetr a Valid Price</div>
+
+                  </div>
+              </div>
+              <div class="form-group mt-4">
+                <input type="text" #tot="ngModel" pattern="[0-9]+" [class.is-invalid]="tot.errors && tot.touched" required class="form-control" name="total" placeholder="Total No. of Bikes" [(ngModel)]="bike.total"/>
+                <div *ngIf="tot.errors && tot.touched">
+                    <div *ngIf="tot.errors?.['required']" class="text-danger">It is Required</div>
+                    <div *ngIf="tot.errors?.['pattern']" class="text-danger">Enter a Valid Number</div>
+
+                </div>
+              </div>
+
+              <br>
+              Choose Bike Image:- <input type="file" class="form-control" name="image" (change)="selectImage($event)" />
+
+              <div class="form-group text-end mt-4">
+                  <button class="btn btn-info" [disabled]="regForm.form.invalid">ADD</button>
+              </div>
+          </div>
+      </div>
+  </form>
+</div>
+

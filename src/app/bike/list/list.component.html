@@ -1,0 +1,71 @@
+<app-nav></app-nav>
+<!-- <div class="container mt-4">
+  <div class="row mt-4">
+      <div class="col-12">
+          <div class="card shadow mb-4" *ngFor="let bike of bikeData">
+              <div class="card-header bg-primary text-white">
+                  <h3>{{ bike.bikeName }}</h3>
+              </div>
+              <div class="card-body">
+                  <div class="row">
+                      <div class="col-12 bg-info text-white">
+                          <div class="row">
+                              <div class="col-6">{{ bike.lenderId.displayName }}</div>
+                              <div class="col-6 text-end">Bike Price / Day :-  {{bike.priceDay}}</div>
+                              <div class="col-6 text-end">Total / Avaibility :-  {{bike.totalbikes}} / {{bike.avaibility}}</div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-6">{{bike.bikeDesc}}</div>
+                            <div class="col-6 text-end">{{ bike.bikeImgUrl }}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 text-end">
+                  <a routerLink="/bike/edit/{{ bike._id }}" class="btn btn-warning">Edit</a>
+                  <a (click)="onDelete(bike._id)" class="btn btn-warning">Delete</a>
+
+                </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div> -->
+
+<div class="row row-cols-1 row-cols-md-3" >
+
+  <div class="col mb-4" *ngFor="let bike of bikeData">
+    <!-- Card -->
+    <div class="card">
+      <!--Card image-->
+
+      <div class="view overlay">
+        <img class="card-img-top" [src]="bike.bikeImgUrl"
+          alt="Card image cap">
+        <a href="#!">
+          <div class="mask rgba-white-slight"></div>
+        </a>
+      </div>
+
+      <!--Card content-->
+      <div class="card-body">
+
+        <!--Title-->
+        <h4 class="card-title">{{bike.bikeName}} </h4>
+        <!--Text-->
+        <p class="card-text">{{bike.bikeDesc}}</p>
+        <h6 [class]="bike.avaibility?'text-black':'text-danger'">Price Per Day:- {{bike.priceDay}}   [ Total / Avaibility :-  <i>{{bike.totalbikes}} / {{bike.avaibility}}</i>]</h6>
+        <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+
+        <a routerLink="/bike/edit/{{ bike._id }}" class="btn btn-info">Edit</a> &nbsp;&nbsp;
+        <a (click)="onDelete(bike._id)" class="btn btn-danger">Delete</a>
+
+      </div>
+
+    </div>
+    <!-- Card -->
+  </div>
+</div>

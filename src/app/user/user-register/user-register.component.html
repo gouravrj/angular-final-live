@@ -1,0 +1,48 @@
+<app-nav></app-nav>
+<div class="img">
+  <br><br>
+<div class="container">
+  <form #regForm="ngForm" (ngSubmit)="onSubmitForm(dname.value);">
+      <div class="card shadow">
+          <div class="card-header bg-dark text-white">
+              <h2>Register</h2>
+          </div>
+          <div class="card-body">
+              <div [class]="isError?'alert alert-danger':'d-none'" class="my-4">{{ message }}</div>
+              <div [class]="isSuccess?'alert alert-success':'d-none'" class="my-4">[{{name}}]{{ message }}</div>
+              <div class="form-group mt-4">
+                  <input type="text" #dname="ngModel" pattern="[a-zA-Z ]+" required minlength="4" class="form-control input" name="displayname" placeholder="Display Name" [(ngModel)]="user.name"/>
+                  <div *ngIf="dname.errors && dname.touched">
+                    <div *ngIf="dname.errors?.['required']" class="text-danger">Name can not be Empty</div>
+                    <div *ngIf="dname.errors?.['minlength']" class="text-danger">Name can not be less than 4 charecters</div>
+                    <div *ngIf="dname.errors?.['pattern']" class="text-danger">Enter a Valid Name</div>
+                  </div>
+              </div>
+              <div class="form-group mt-4">
+                  <input type="text" #username="ngModel" required email="true" class="form-control input" name="username" placeholder="Username" [(ngModel)]="user.userid"/>
+                  <div *ngIf="username.errors && username.touched">
+                    <div class="text-danger">Enter a Valid Username</div>
+                  </div>
+              </div>
+              <div class="form-group mt-4">
+                  <input type="password" #pass="ngModel" minlength="8" required class="form-control input" name="password" placeholder="Password" [(ngModel)]="user.password"/>
+                  <div *ngIf="pass.errors && pass.touched">
+                    <div *ngIf="pass.errors?.['minlength']" class="text-danger" >Password length can not be less than 8</div>
+                    <div *ngIf="pass.errors?.['required']" class="text-danger" >Password cannot be Empty</div>
+                </div>
+              </div>
+              <div class="form-group mt-4">
+                <input type="text" #phone="ngModel" pattern="^[0-9]{10}$" required class="form-control input" name="phone" placeholder="Phone no." [(ngModel)]="user.userphone"/>
+                <div *ngIf="phone.errors && phone.touched">
+                  <div class="text-danger">Enter a Valid Phone Number</div>
+                </div>
+              </div>
+
+              <div class="form-group text-end mt-4">
+                  <button class="btn btn-dark" [disabled]="regForm.form.invalid">Register</button>
+              </div>
+          </div>
+      </div>
+  </form>
+</div>
+</div>

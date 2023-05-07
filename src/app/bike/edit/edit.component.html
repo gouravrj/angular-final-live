@@ -1,0 +1,34 @@
+
+<app-nav></app-nav>
+<div class="container mt-4">
+    <form #editForm="ngForm" (ngSubmit)="onSubmitBike()">
+      <div class="card mt-4 shadow">
+        <div class="card-header bg-info text-white">
+          <h2>Edit Bike</h2>
+        </div>
+        <div class="card-body">
+            <div [class]="isError?'alert alert-danger':'d-none'" class="my-4">{{ message }}</div>
+            <div [class]="isSuccess?'alert alert-success':'d-none'" class="my-4">{{ message }}</div>
+            <div class="form-group mt-4">
+                <input type="text"  class="form-control" name="bname" placeholder="Bike Name" [(ngModel)]="bike.bname"/>
+            </div>
+            <div class="form-group mt-4">
+                <input type="text" class="form-control" name="bdesc" placeholder="Bike Description" [(ngModel)]="bike.bdesc"/>
+            </div>
+            <div class="form-group mt-4">
+              <input type="text" class="form-control" name="pday" placeholder="Post Desc" [(ngModel)]="bike.pday"/>
+            </div>
+            <div class="form-group mt-4">
+              <input type="text" class="form-control" name="booked" placeholder="Post Desc" [(ngModel)]="bike.avb"/>
+            </div>
+            <div class="form-group mt-4">
+              <input type="text" class="form-control" name="booked" placeholder="Post Desc" [(ngModel)]="bike.total"/>
+            </div>
+            <br>
+            <div class="form-group text-end mt-4">
+                <button class="btn btn-info">Update Bike</button>
+            </div>
+        </div>
+      </div>
+    </form>
+</div>

@@ -1,0 +1,37 @@
+<app-nav></app-nav>
+<div class="main">
+  <br>
+<div class="sub-main">
+<div class="row row-cols-1 row-cols-md-3" >
+  <div class="col mb-4" *ngFor="let bike of bikeData">
+    <!-- Card -->
+    <div class="card">
+      <!--Card image-->
+      <div class="view overlay">
+        <img class="card-img-top" [src]="bike.bikeImgUrl"
+          alt="Card image cap">
+        <a href="#!">
+          <div class="mask rgba-white-slight"></div>
+        </a>
+      </div>
+
+      <!--Card content-->
+      <div class="card-body text-white">
+
+        <!--Title-->
+        <h4 class="card-title">{{bike.bikeName}} <i>({{ bike.lenderId.displayName }})</i></h4>
+        <!--Text-->
+        <p class="card-text">{{bike.bikeDesc}}</p>
+        <h6>Price Per Day:- {{bike.priceDay}}   [ Total / Avaibility :-  <i>{{bike.totalbikes}} / {{bike.avaibility}}</i>]</h6>
+        <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+
+        <a routerLink="/bike/book/{{bike.priceDay}}/{{bike._id}}/{{bike.lenderId._id}}" [class]="bike.avaibility?'':'disabled'" class="btn btn-outline-danger" >BOOK</a>
+
+      </div>
+
+    </div>
+    <!-- Card -->
+  </div>
+</div>
+</div>
+</div>

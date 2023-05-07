@@ -1,0 +1,43 @@
+*{
+  margin: 0px;
+}
+
+.example-card {
+  max-width: 400px;
+  margin: auto;
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+
+.img{
+  background-image: url("https://images.unsplash.com/photo-1558980664-28d10ee9bb52?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+  background-attachment: fixed;
+  /* background-color: rgb(255, 14, 26); */
+}
+
+.card-body{
+  background-image: url("https://images.unsplash.com/photo-1558980664-28d10ee9bb52?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.card{
+  border: 3px solid black;
+}
+
+.sub{
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.view{
+  border-bottom: 2px solid black;;
+}
