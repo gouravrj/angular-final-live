@@ -21,13 +21,13 @@ const routes: Routes = [
   {path:"register",component:RegisterComponent},
   {path:"bike/list",component:ListComponent,canActivate:[AuthGuardService]},
   {path:"bike/edit/:id",component:EditComponent,canActivate:[AuthGuardService]},
-  {path:"save",component:AddComponent},
+  {path:"save",component:AddComponent,canActivate:[AuthGuardService]},
   {path:"user-login",component:UserLoginComponent},
   {path:"user-register",component:UserRegisterComponent},
   {path:"home-user/showbikes",component:UserShowBikesComponent,canActivate:[AuthGuardService]},
-  {path:"bike/book/:price/:bikeid/:lid",component:PaymentPageComponent},
-  {path:"user-history",component:UserHistoryComponent},
-  {path:"lender-history",component:LenderHistoryComponent},
+  {path:"bike/book/:price/:bikeid/:lid",component:PaymentPageComponent,canActivate:[AuthGuardService]},
+  {path:"user-history",component:UserHistoryComponent,canActivate:[AuthGuardService]},
+  {path:"lender-history",component:LenderHistoryComponent,canActivate:[AuthGuardService]},
   {path:"**",component:PagenotfoundComponent}
 ];
 
